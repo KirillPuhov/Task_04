@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        getNum(getK(scan));
+        printNumber(getK(scan));
     }
 
     private static int getK(Scanner scan){
@@ -17,28 +17,31 @@ public class Main {
         return k;
     }
 
-    private static void getNum(int k){
+    private static void printNumber(int k){
         int result;
 
-        int i = 0;
-        int j = 0;
-        int i1;
+        int numberCounter = 0;
+        int digitCounter = 0;
 
-        while(j < k){
-            i++;
-            i1=i;
-            while (i1 > 0){
-                j++;
-                i1 /= 10;
+        int numberCounterClone;
+
+        while(digitCounter < k){
+
+            numberCounter++;
+            numberCounterClone =numberCounter;
+
+            while (numberCounterClone > 0){
+                digitCounter++;
+                numberCounterClone /= 10;
             }
         }
 
-        while(j > k){
-            i /= 10;
-            j--;
+        while(digitCounter > k){
+            numberCounter /= 10;
+            digitCounter--;
         }
 
-        result = i % 10;
+        result = numberCounter % 10;
 
         System.out.printf("k-aя цифра: %d\n", result);
     }
